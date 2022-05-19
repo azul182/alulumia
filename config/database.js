@@ -1,7 +1,7 @@
 //importar o mongoose
 const mongoose = require('mongoose')
 //scritps de conexao 
-const consign = async()=>{
+const conn = async()=>{
     const atlas = await mongoose.connect('mongodb+srv://userLR:luizao00@cluster0.s3hds.mongodb.net/dblr')
 }
 
