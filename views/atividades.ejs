@@ -15,7 +15,9 @@
         <div class="row">
             <div class="col-sm text-center">
                 <h3 class="text-center">Cadastrar</h3>
-            <form action="" method="post" class="form-control">
+            <form action="/atividades" method="post" class="form-control">
+                <input type="hidden" name="id" value="<%=id%>">
+                <input type="hidden" name="nome" value="<%=nome%>">
             <div class="form-floating">
                 <input type="date" name="data" id="floatingInput" class="form-control" placeholder="Data">
                 <label for="floatingInput">Data de entrega</label>
@@ -31,14 +33,36 @@
                 </select>
                 <label for="floatingSelect">Tipo de Atividade</label>
                 </div>
+                <label for="" class="form-control">Como entregar:</label>
                 <input type="radio" name="entrega" class="form-check-input" id="" value="tarefa">Tarefa no Teams 
                 <input type="radio" name="entrega" class="form-check-input" id="" value="Chat">Chat do Teams
                 <input type="radio" name="entrega" class="form-check-input" id="" value="email">Email
                 <input type="radio" name="entrega" class="form-check-input" id="" value="formulario">Forms
-                <input type="submit" value="Registrar" class="btn btn-info">
+                <label for="" class="form-control">Orientações:</label>
+                <textarea name="orientacao" id="" cols="30" rows="10" class="form-control"></textarea>
+                <input type="submit" value="Gravar" class="btn btn-info">
             </form>
-            <a href="/login" class="btn btn-info botao">Login</a>
             
+            </div>
+            <div class="col-sm text-center">
+                <h3>Atividades Cadastradas</h3>
+                <% for (var n=0; n<dados.length;n++){%>
+                <div class="card">
+                    <div class="card-header bg-dark text-light">Data:<%=dados[n].data%></div>
+                    <div class="card-body">
+                        <div class="card-title text-dark">Tipo:<%=dados[n].tipo%></div>
+                        <div class="card-subtitle text-dark">Entrega:<%=dados[n].entrega%></div>
+                        <div class="card-text text-dark">Orientações:<%=dados[n].instrucoes%></div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="input-group">
+                            <input type="button" value="Entregue" class="btn btn-outline-success form-control">
+                            <input type="button" value="Alterar" class="btn btn-outline-warning form-control">
+                            <input type="button" value="Excluir" class="btn btn-outline-danger form-control">
+                        </div>
+                    </div>
+                </div>
+                <% }%>
             </div>
         </div>
     </div>  
