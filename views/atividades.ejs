@@ -33,6 +33,18 @@
                 </select>
                 <label for="floatingSelect">Tipo de Atividade</label>
                 </div>
+                <div class="form-floating">
+                    <select name="disciplina" id=""class="form-control">
+                        <option value="0">Selecione...</option>
+                        <option value="LP2">LP2</option>
+                        <option value="BD2">BD2</option>
+                        <option value="INW">INW</option>
+                        <option value="LPL">LPL</option>
+                        <option value="HEG">HEG</option>
+                    </select>
+                    <label for="floatingSelect">Disciplina</label>
+                </div>
+
                 <label for="" class="form-control">Como entregar:</label>
                 <input type="radio" name="entrega" class="form-check-input" id="" value="tarefa">Tarefa no Teams 
                 <input type="radio" name="entrega" class="form-check-input" id="" value="Chat">Chat do Teams
@@ -48,17 +60,18 @@
                 <h3>Atividades Cadastradas</h3>
                 <% for (var n=0; n<dados.length;n++){%>
                 <div class="card">
-                    <div class="card-header bg-dark text-light">Data:<%=dados[n].data%></div>
+                    <div class="card-header bg-dark text-light">Data:<%=dados[n].data.getDay()+2%>° Dia da semana/<%=dados[n].data.getDate()+1%>/<%=dados[n].data.getMonth()+1%></div>
                     <div class="card-body">
                         <div class="card-title text-dark">Tipo:<%=dados[n].tipo%></div>
-                        <div class="card-subtitle text-dark">Entrega:<%=dados[n].entrega%></div>
+                        <div class="card-subtitle text-dark">Disciplina:<%=dados[n].disciplina%></div>
+                        <div class="card-text text-dark">Entrega:<%=dados[n].entrega%></div>
                         <div class="card-text text-dark">Orientações:<%=dados[n].instrucoes%></div>
                     </div>
                     <div class="card-footer">
                         <div class="input-group">
                             <input type="button" value="Entregue" class="btn btn-outline-success form-control">
                             <input type="button" value="Alterar" class="btn btn-outline-warning form-control">
-                            <input type="button" value="Excluir" class="btn btn-outline-danger form-control">
+                            <input type="button" value="Excluir" class="btn btn-outline-danger form-control" onclick="(window.location.href='/excluir?id=dados[n]._id%>')">
                         </div>
                     </div>
                 </div>

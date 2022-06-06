@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const modelo = mongoose.Schema({
     data:Date,
     tipo:String,
+    disciplina:String,
     entrega: String,
     disciplina:String,
     instrucoes:String,
